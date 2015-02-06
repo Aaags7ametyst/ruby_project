@@ -1,0 +1,2 @@
+module CommitteesVoivodshipsHelper
+end

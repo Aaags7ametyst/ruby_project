@@ -1,0 +1,21 @@
+<%= form_for(@committees_district) do |f| %>
+  <% if @committees_district.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@committees_district.errors.count, "error") %> prohibited this committees_district from being saved:</h2>
+
+      <ul>
+      <% @committees_district.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :votes %><br>
+    <%= f.number_field :votes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
