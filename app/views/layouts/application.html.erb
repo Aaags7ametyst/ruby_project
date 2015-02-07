@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Election</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+ <title>Internetowy serwis wyborczy</title>
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <div id="container">
+	<div class="navbar navbar-fixed-top">
+  		<div class="navbar-inner">
+    
+            	  <div class="nav-collapse">
+        		<ul class="nav">
+          		<li><%= link_to "Strona Główna", :root %></li>
+				<% if current_user %>
+     
+           		<li><%= link_to "Wyloguj", :logout %></li>
+  				<% else %>
+       			<li><%= link_to "Zaloguj się", :login %></li>
+  				<% end %>
+ 
+			</ul>
+        
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
 
-</body>
+     
+      </div>
+      <%= yield %>
+    </div>
+  </body>
 </html>

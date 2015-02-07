@@ -1,28 +1,19 @@
-ActiveAdmin.register Committee do
+ActiveAdmin.register CommitteesVoivodship do
 
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name, :logo
+  permit_params :committee_id, :voivodship_id, :number_of_votes
   index do
     selectable_column
     id_column
-    column :name
-    column :logo, as: :grid do |committee|
-   link_to image_tag(committee.logo)
-	end
-  actions
- end
-
-  show do
-    attributes_table do
-      row :name
-      row :logo do |logo|
-	image_tag committee.logo
-      end
+    column :number_of_votes
+    column :voivodship
+    column :committee
+    actions defaults: true do |committees_voivodship|
     end
-  end
+   end
   #
   # or
   #

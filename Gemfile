@@ -37,6 +37,20 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+# Devise
 gem 'devise'
+# ActiveAdmin
 gem 'activeadmin', github: 'activeadmin'
+# Use authentication
+gem 'authlogic'
+
+# Authorization
+gem 'cancancan', '~> 1.10'
+
+#Use Polish language
+gem 'polish'
+
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+
+gem 'twitter-bootstrap-rails', '2.2.8'

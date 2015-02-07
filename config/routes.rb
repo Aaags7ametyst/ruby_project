@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+ # get 'user_sessions/new'
+
+ # get 'user_sessions/create'
+
+ # get 'user_sessions/destroy'
+
+ resource :user_session, :only => [:new, :create, :destroy]
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :committees_voivodships
@@ -12,6 +20,11 @@ Rails.application.routes.draw do
   resources :committees
 
   resources :users
+
+  root :to => 'static#index'
+  resource :user_session, :only => [:new, :create, :destroy]
+  get 'login' => 'user_sessions#new', :as => :login
+  get 'logout' => 'user_sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

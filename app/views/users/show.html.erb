@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <strong>Crypted password:</strong>
-  <%= @user.crypted_password %>
+  <strong>Password:</strong>
+  <%= @user.password %>
 </p>
 
 <p>
@@ -28,11 +28,6 @@
 <p>
   <strong>Role:</strong>
   <%= @user.role %>
-</p>
-
-<p>
-  <strong>Persistence token:</strong>
-  <%= @user.persistence_token %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

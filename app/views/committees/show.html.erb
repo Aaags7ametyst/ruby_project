@@ -6,8 +6,9 @@
 </p>
 
 <p>
-  <strong>Logo:</strong>
-  <%= @committee.logo %>
+<% unless @committee.logo.blank? %>
+    <%= image_tag (@committee.logo) if @committee.logo %>
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_committee_path(@committee) %> |
