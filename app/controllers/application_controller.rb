@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user, :current_user_session
   layout 'application'
+  
+  def after_sign_in_path_for(resource)
+    if current_user.role?("admin")
+	redirect_to '/admin'
+    elsif current_user.role?("central")
+	redirect_to current_user
+    else 
+        redirect_to root_path
+    end
+  end
 
   private
   def current_user_session

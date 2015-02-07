@@ -4,7 +4,10 @@
   <strong>Name:</strong>
   <%= @district.name %>
 </p>
-
+<p>
+  <strong>Województwo:</strong>
+  <%= @district.voivodship.name %>
+</p>
 <p>
   <strong>Eligible voters:</strong>
   <%= @district.eligible_voters %>
