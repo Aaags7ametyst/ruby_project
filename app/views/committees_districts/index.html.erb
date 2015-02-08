@@ -3,18 +3,24 @@
 <table>
   <thead>
     <tr>
+      <th>Okręg</th>
+      
+      <th>Komitet</th>	
       <th>Votes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @committees_districts.each do |committees_district| %>
+    <% @committees.each do |committee| %>
       <tr>
-        <td><%= committees_district.votes %></td>
-        <td><%= link_to 'Show', committees_district %></td>
-        <td><%= link_to 'Edit', edit_committees_district_path(committees_district) %></td>
-        <td><%= link_to 'Destroy', committees_district, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td><%= committee.district.name %></td>
+	
+	<td><%= committee.committee.name %></td>
+        <td><%= committee.votes %></td>
+        <td><%= link_to 'Show', committee %></td>
+        <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
+        <td><%= link_to 'Destroy', committee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Committees district', new_committees_district_path %>
+<%= link_to 'New Committees district', new_committee_path %>

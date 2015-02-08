@@ -3,6 +3,8 @@
 <table>
   <thead>
     <tr>
+      <th>Województwo</th>
+      <th>Komitet</th>
       <th>Number of votes</th>
       <th colspan="3"></th>
     </tr>
@@ -11,7 +13,9 @@
   <tbody>
     <% @committees_voivodships.each do |committees_voivodship| %>
       <tr>
-        <td><%= committees_voivodship.number_of_votes %></td>
+	<td><%= committees_voivodship.voivodship.name %></td>
+	<td><%= committees_voivodship.committee.name %></td>        
+	<td><%= committees_voivodship.number_of_votes %></td>
         <td><%= link_to 'Show', committees_voivodship %></td>
         <td><%= link_to 'Edit', edit_committees_voivodship_path(committees_voivodship) %></td>
         <td><%= link_to 'Destroy', committees_voivodship, method: :delete, data: { confirm: 'Are you sure?' } %></td>

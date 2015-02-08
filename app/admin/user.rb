@@ -11,6 +11,7 @@ ActiveAdmin.register User do
     column :name
     column :surname
     column :role
+    column :district
     column :created_at
     actions defaults: true do |user|
    #   link_to 'Zmień role', change_role_admin_user_path(user)
@@ -25,6 +26,7 @@ ActiveAdmin.register User do
       row :name
       row :surname
       row :role
+      row :district
       row :created_at
       row :updated_at
     end
@@ -36,7 +38,8 @@ ActiveAdmin.register User do
       f.input :login
       f.input :email
       f.input :name
-      f.input :surname	
+      f.input :surname
+      f.input :district	
       f.input :role, :label => 'Rola', :as => :select, :collection => User::ROLES
       f.input :password
       #f.input :password_confirmation

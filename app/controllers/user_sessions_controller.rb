@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       flash[:notice] = "Successfully logged in."
 	after_sign_in_path_for(User)
-        
+        #redirect_to root_url
     else
       render :action => 'new'
     end

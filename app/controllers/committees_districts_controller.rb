@@ -3,9 +3,17 @@ class CommitteesDistrictsController < ApplicationController
 
   # GET /committees_districts
   # GET /committees_districts.json
+
+
   def index
-    @committees_districts = CommitteesDistrict.all
-  end
+   # @committees_districts = CommitteesDistrict.all
+  #end
+    @user = current_user
+    @committees = CommitteesDistrict.all.where("committees_districts.district_id = ?", 1)
+   # committees.each do |committee|
+	#puts "#{committee.district.name} #{committee.voivodship.name} #{committee.name} #{committee.votes}"
+    #end
+  end	
 
   # GET /committees_districts/1
   # GET /committees_districts/1.json
