@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
 
-  permit_params :login, :password, :password_confirmation, :email, :role, :name, :surname
+  permit_params :login, :password, :password_confirmation, :email, :role, :name, :surname, :district_id
   actions :all
 
   index do

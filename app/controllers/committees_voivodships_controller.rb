@@ -1,6 +1,6 @@
 class CommitteesVoivodshipsController < ApplicationController
   before_action :set_committees_voivodship, only: [:show, :edit, :update, :destroy]
-
+   load_and_authorize_resource
   # GET /committees_voivodships
   # GET /committees_voivodships.json
   def index

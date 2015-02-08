@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nazwa okręgu:</strong>
   <%= @district.name %>
 </p>
 <p>
@@ -9,18 +9,30 @@
   <%= @district.voivodship.name %>
 </p>
 <p>
-  <strong>Eligible voters:</strong>
+  <strong>Uprawnieni do głosowania:</strong>
   <%= @district.eligible_voters %>
 </p>
 
 <p>
-  <strong>Valid votes:</strong>
+  <strong>Liczba ważnych głosów:</strong>
   <%= @district.valid_votes %>
 </p>
 
 <p>
-  <strong>Invalid votes:</strong>
+  <strong>Głosy nieważne:</strong>
   <%= @district.invalid_votes %>
+</p>
+<p>
+  <strong>Puste karty:</strong>
+  <%= @district.puste %>
+</p>
+<p>
+  <strong>Wiele skreśleń:</strong>
+  <%= @district.wiele %>
+</p>
+<p>
+  <strong>Inne:</strong>
+  <%= @district.inne %>
 </p>
 
 <p>

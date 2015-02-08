@@ -5,6 +5,15 @@ ActiveAdmin.register CommitteesDistrict do
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   permit_params :committee_id, :district_id, :votes
+  index do
+    selectable_column
+    id_column
+    column :district
+    column :committee
+    column :votes
+    actions defaults: true do |committees_district|
+    end
+   end
   #
   # or
   #

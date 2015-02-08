@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
   flash[:alert] = exception.message
+ 
   redirect_to root_url
   end
   helper_method :current_user, :current_user_session
@@ -15,9 +16,9 @@ class ApplicationController < ActionController::Base
     if current_user.role?("admin")
       redirect_to '/admin/committees'
     elsif current_user.role?("central")
-      redirect_to current_user
+      redirect_to '/committees_voivodships'
     else 
-      redirect_to root_path
+      redirect_to '/committees_districts'
     end
   end
 

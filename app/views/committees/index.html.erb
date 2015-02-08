@@ -17,8 +17,7 @@
     <%= image_tag (committee.logo) if committee.logo %>
     </td>
         <td><%= link_to 'Show', committee %></td>
-        <td><%= link_to 'Edit', edit_committee_path(committee) %></td>
-        <td><%= link_to 'Destroy', committee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       
       </tr>
     <% end %>
   </tbody>
