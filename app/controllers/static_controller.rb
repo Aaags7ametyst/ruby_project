@@ -3,8 +3,5 @@ class StaticController < ApplicationController
     
   end
 
-  def district
   
-  end
-
 end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :district
   
-  ROLES = %w[district central admin]
+  ROLES = %w[district central]
 
   acts_as_authentic do |config|
     config.validate_login_field = false

@@ -12,16 +12,16 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :current_user_session
   layout 'application'
   
-  def after_sign_in_path_for(resource)
-    if current_user.role?("admin")
-      redirect_to '/admin/committees'
-    elsif current_user.role?("central")
+=begin def after_sign_in_path_for(resource)
+    #if current_user.role?("admin")
+    #  redirect_to '/admin/committees'
+    if current_user.role?("central")
       redirect_to '/committees_voivodships'
     else 
       redirect_to '/committees_districts'
     end
   end
-
+=end
   private
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

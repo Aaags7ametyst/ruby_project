@@ -12,9 +12,9 @@ class Ability
     #     can :read, :all
     #   end
 
- if user.role? :admin
-	can :manage, :all
- elsif user.role? :central
+ #if user.role? :admin
+#	can :manage, :all
+ if user.role? :central
 	can :read, CommitteesVoivodship
  elsif user.role? :district
         can :read, Committee
