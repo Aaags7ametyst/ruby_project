@@ -1,4 +1,4 @@
-<h1>Listing districts</h1>
+<h1>Dane dla okręgu</h1>
 
 <table>
   <thead>
@@ -19,10 +19,13 @@
         <td><%= district.eligible_voters %></td>
         <td><%= district.valid_votes %></td>
         <td><%= district.invalid_votes %></td>
+        <td><%= district.puste %></td>
+	<td><%= district.wiele %></td>
+	<td><%= district.inne %></td>
         <td><%= district.vote_cards %></td>
         <td><%= link_to 'Show', district %></td>
         <td><%= link_to 'Edit', edit_district_path(district) %></td>
-        <td><%= link_to 'Destroy', district, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New District', new_district_path %>
+<a href="/committees_districts">Uzupełnij wyniki poszczególnych komitetów</a>

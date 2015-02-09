@@ -46,9 +46,7 @@ ActiveAdmin.register User do
     end
     f.actions
   end
-  #member_action :change_role, method: :get do
-   # @user = User.find(params[:id])
-  #end
+
 
 
 end

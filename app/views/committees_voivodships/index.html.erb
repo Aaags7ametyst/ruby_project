@@ -16,11 +16,12 @@
 	<td><%= committees_voivodship.voivodship.name %></td>
 	<td><%= committees_voivodship.committee.name %></td>        
 	<td><%= committees_voivodship.number_of_votes %></td>
-
-        <td><%= link_to 'Show', committees_voivodship %></td>
+<% if false %>
+        <td><%= link_to 'Show', committees_voivodship %></td> %>
         <td><%= link_to 'Edit', edit_committees_voivodship_path(committees_voivodship) %></td>
         <td><%= link_to 'Destroy', committees_voivodship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% end %>      
+</tr>
     <% end %>
   </tbody>
 </table>
