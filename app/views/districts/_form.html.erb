@@ -1,4 +1,4 @@
-<%= form_for(@district) do |f| %>
+<%= form_for @district, :html => {:class => 'form-horizontal'} do |f| %>
   <% if @district.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@district.errors.count, "error") %> prohibited this district from being saved:</h2>
@@ -11,35 +11,53 @@
     </div>
   <% end %>
 
-  
-  <div class="field">
-    <%= f.label :eligible_voters %><br>
-    <%= f.number_field :eligible_voters %>
-  </div>
-  <div class="field">
-    <%= f.label :valid_votes %><br>
-    <%= f.number_field :valid_votes %>
-  </div>
-  <div class="field">
-    <%= f.label :suma %><br>
-    <%= f.number_field :invalid_votes %>
-  </div>
-<div class="field">
-    <%= f.label :puste %><br>
-    <%= f.number_field :puste %>
-  </div>
-<div class="field">
-    <%= f.label :wiele %><br>
-    <%= f.number_field :wiele %>
-</div>
-<div class="field">
-    <%= f.label :inne %><br>
-    <%= f.number_field :inne %>
-  <div class="field">
-    <%= f.label :vote_cards %><br>
-    <%= f.number_field :vote_cards %>
-  </div>
+	<div class="form-group">
+	    <%= f.label :liczba_uprawnionych_do_głosowania %>
+		<div class="col-sm-2">
+    		<%= f.number_field :eligible_voters, :class => 'form-control' %>
+		</div>	
+	</div>
+	
+	<div class="form-group">
+	    <%= f.label :ważne_głosy %><br>
+		<div class="col-sm-2">    		
+		<%= f.number_field :valid_votes, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+	    <%= f.label :suma_głosów_nieważnych %><br>
+		<div class="col-sm-2">
+		<%= f.number_field :invalid_votes, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+	    <%= f.label :puste %><br>
+		<div class="col-sm-2">		
+		<%= f.number_field :puste, :class => 'form-control' %>
+		</div>
+	</div>
+
+	<div class="form-group">
+    	    <%= f.label :wiele %><br>
+		<div class="col-sm-2">
+    		<%= f.number_field :wiele, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+    	    <%= f.label :inne %><br>
+		<div class="col-sm-2">
+    		<%= f.number_field :inne, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+    	    <%= f.label :wydane_karty %><br>
+		<div class="col-sm-2">    		
+		<%= f.number_field :vote_cards, :class => 'form-control' %>
+		</div>
+  	</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Zaktualizuj", :class => "btn btn-primary"%>
   </div>
 <% end %>
+
+

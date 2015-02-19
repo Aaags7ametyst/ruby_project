@@ -22,23 +22,23 @@
   <strong>Głosy nieważne:</strong>
   <%= @district.invalid_votes %>
 </p>
-<p>
-  <strong>Puste karty:</strong>
+<li><p>
+  <strong>puste karty:</strong>
   <%= @district.puste %>
-</p>
-<p>
-  <strong>Wiele skreśleń:</strong>
+</p></li>
+<li><p>
+  <strong>wiele skreśleń:</strong>
   <%= @district.wiele %>
-</p>
-<p>
-  <strong>Inne:</strong>
+</p></li>
+<li><p>
+  <strong>inne:</strong>
   <%= @district.inne %>
-</p>
+</p></li>
 
 <p>
-  <strong>Vote cards:</strong>
+  <strong>Liczba wydanych kart do głosowania:</strong>
   <%= @district.vote_cards %>
 </p>
 
-<%= link_to 'Edit', edit_district_path(@district) %> |
-<%= link_to 'Back', districts_path %>
+<%= link_to 'Zaktualizuj', edit_district_path(@district) %> |
+<%= link_to 'Powrót', districts_path %>

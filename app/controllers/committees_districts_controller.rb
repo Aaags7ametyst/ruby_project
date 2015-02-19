@@ -1,11 +1,12 @@
 class CommitteesDistrictsController < ApplicationController
   before_action :set_committees_district, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  #load_and_authorize_resource
   # GET /committees_districts
   # GET /committees_districts.json
 
   def all
     @committees_districts = CommitteesDistrict.all
+	#render 'index'
  
   end
 
@@ -14,9 +15,7 @@ class CommitteesDistrictsController < ApplicationController
   #end
     @user = current_user
     @committees_districts = CommitteesDistrict.all.where("committees_districts.district_id = ?", current_user.district_id)
-   # committees.each do |committee|
-	#puts "#{committee.district.name} #{committee.voivodship.name} #{committee.name} #{committee.votes}"
-    #end
+   
   end	
 
   # GET /committees_districts/1

@@ -1,10 +1,14 @@
 class CommitteesVoivodshipsController < ApplicationController
   before_action :set_committees_voivodship, only: [:show, :edit, :update, :destroy]
-   load_and_authorize_resource
+  # load_and_authorize_resource
   # GET /committees_voivodships
   # GET /committees_voivodships.json
   def index
     @committees_voivodships = CommitteesVoivodship.all
+  end
+
+  def full
+  	@committees_voivodships = CommitteesDistrict.joins(:district => :voivodship).all(:group => "voivodship_id")
   end
 
   # GET /committees_voivodships/1

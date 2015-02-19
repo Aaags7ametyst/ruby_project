@@ -1,9 +1,9 @@
-<h1>Wyniki komitetów w okręgu <%= current_user.district.name %> <%= current_user.district.voivodship.name %>
-</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Województwo</th>
+      <th>Okręg</th>	
       <th>Komitet</th>	
       <th>Liczba oddanych głosów</th>
       <th colspan="3"></th>
@@ -13,15 +13,17 @@
   <tbody>
     <% @committees_districts.each do |committees_district| %>
       <tr>
+	<td><%= committees_district.district.voivodship.name %></td>
+	<td><%= committees_district.district.name %></td>
 	<td><%= committees_district.committee.name %></td>
         <td><%= committees_district.votes %></td>
-        <td><%= link_to 'Zaktualizuj', edit_committees_district_path(committees_district) %></td>
+   
         
       </tr>
     <% end %>
   </tbody>
 </table>
-<a href="districts">Ogólne informacje o okręgu</a>
+<a href="#">Zestawienia wojewódzkie</a>
 <br>
 
 

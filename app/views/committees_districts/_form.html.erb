@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :votes %><br>
-    <%= f.number_field :votes %>
+  <div class="form-group">
+    <%= f.label :oddane_głosy %><br>
+	<div class="col-sm-2">
+    	<%= f.number_field :votes, :class => 'form-control' %>
+	</div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Zapisz" %>
   </div>
 <% end %>

@@ -1,6 +1,7 @@
-<h1>Editing district</h1>
+<!DOCTYPE HTML>
+<h3>Aktualizacja danych dla okręgu <%= @district.name%> <%=@district.voivodship.name %></h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @district %> |
-<%= link_to 'Back', districts_path %>
+<%= link_to 'Aktualne dane', @district %> |
+<%= link_to 'Powrót', districts_path %>

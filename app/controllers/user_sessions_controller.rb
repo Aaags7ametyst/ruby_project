@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
 	#after_sign_in_path_for(User)
         #redirect_to root_path
          if current_user.role?("central")
-            redirect_to '/committees_voivodships'
+            redirect_to '/all_districts'
          else 
             redirect_to '/districts'
          end

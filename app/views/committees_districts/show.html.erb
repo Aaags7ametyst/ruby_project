@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
-
+<h4><%= @committees_district.committee.name %><br><br>
+okręg <%= @committees_district.district.name %>
+województwo <%= @committees_district.district.voivodship.name %></h4>
 <p>
-  <strong>Votes:</strong>
+  <strong>Liczba oddanych głosów:</strong>
   <%= @committees_district.votes %>
 </p>
 
-<%= link_to 'Edit', edit_committees_district_path(@committees_district) %> |
-<%= link_to 'Back', committees_districts_path %>
+<%= link_to 'Zaktualizuj', edit_committees_district_path(@committees_district) %> |
+<%= link_to 'Powrót', committees_districts_path %>

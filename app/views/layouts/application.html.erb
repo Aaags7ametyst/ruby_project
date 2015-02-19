@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
  <title>Internetowy serwis wyborczy</title>
-<%= stylesheet_link_tag "application", :media => "all" %>
-<%= javascript_include_tag "application" %>
-<%= csrf_meta_tags %>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<%= stylesheet_link_tag "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div id="container">
+  <div class="container">
 	<div class="navbar navbar-fixed-top">
   		<div class="navbar-inner">
     
             	  <div class="nav-collapse">
         		<ul class="nav">
           		<li><%= link_to "Strona Główna", :root %></li>
+			<li><a href="/admin">Panel administratora</a></li>
 				<% if current_user %>
      
            		<li><%= link_to "Wyloguj", :logout %></li>
@@ -27,11 +32,17 @@
       </div>
     </div>
   </div>
+	
+<div class="jumbotron">
+<h1>Internetowy serwis wyborczy</h1>
+</div>
 
 
      
-      </div>
+     
       <%= yield %>
     </div>
+<hr>
+<%= render :template => 'layouts/footer' %>
   </body>
 </html>
