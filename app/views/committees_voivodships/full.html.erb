@@ -1,1 +1,27 @@
-<p>Tu pojawi się zestawienie</p>
+<h3>Zbiorcze zestawienie wyników wyborów dla poszczególnych województw</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Województwo</th>
+      <th>Komitet</th>
+      <th>Liczba oddanych głosów</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+   
+     
+	      
+
+	<% @sums.each_pair do |key, value| %>
+<tr>
+	<td> <%= key[1] %></td>
+	<td> <%= key[0] %></td>
+	<td> <%= value %></td>
+<% end %>
+	
+</tr>
+
+  </tbody>
+</table>
+<h5><a href="/central">Menu - komisja centralna</a></h5>

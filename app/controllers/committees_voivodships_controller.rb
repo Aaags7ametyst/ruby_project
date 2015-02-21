@@ -1,6 +1,6 @@
 class CommitteesVoivodshipsController < ApplicationController
   before_action :set_committees_voivodship, only: [:show, :edit, :update, :destroy]
-  # load_and_authorize_resource
+  load_and_authorize_resource
   # GET /committees_voivodships
   # GET /committees_voivodships.json
   def index
@@ -8,9 +8,33 @@ class CommitteesVoivodshipsController < ApplicationController
   end
 
   def full
-  	@committees_voivodships = CommitteesDistrict.joins(:district => :voivodship).all(:group => "voivodship_id")
+	@voivodship_votes = CommitteesVoivodship.select(:committee_id, :voivodship_id)
+	@committees_voivodships = CommitteesDistrict.joins(:district => :voivodship).joins(:committee).all.order("voivodships.name")
+	@sums = @committees_voivodships.group("committees.name", "voivodships.name").sum("votes")
+  end
+  
+  def results
+	@committees_voivodships = CommitteesDistrict.joins(:district => :voivodship).joins(:committee).all.where("valid_votes is not null").select("districts.voivodship_id, committee_id, SUM(valid_votes) AS karty, SUM(votes) AS votes").group("committees.name", "voivodships.name").order("voivodships.name")
+	#@sums = @committees_voivodships.group("committees.name", "voivodships.name").sum("votes")
+	#@valid = @committees_voivodships.group("committees.name", "voivodships.name").sum("valid_votes")
   end
 
+  def percentage
+	@votes = District.joins(:voivodship).where("vote_cards is not null").all.order("name")	
+  end
+
+  def turnout
+	#@voters = District.joins(:voivodship).all.where("vote_cards is not null").group("voivodship_id").sum("eligible_voters AND vote_cards")
+		@voters = District.joins(:voivodship).all.where("vote_cards is not null").select("voivodship_id, SUM(eligible_voters) AS glosy, SUM(vote_cards) AS karty").group("voivodship_id").order("voivodships.name")
+																		
+	#@eligible_sums = @voters.group("voivodship_id").sum("eligible_voters")
+  	#@vote_sums = @voters.group("voivodship_id").sum("vote_cards")
+	@voivodships = Voivodship.all
+  end
+
+  def invalid
+	@votes = District.joins(:voivodship).all.where("vote_cards is not null").select("voivodship_id, SUM(invalid_votes) AS glosy, SUM(puste) AS puste, SUM(wiele) AS wiele, SUM(inne)AS inne").group("voivodship_id").order("voivodships.name")
+  end
   # GET /committees_voivodships/1
   # GET /committees_voivodships/1.json
   def show

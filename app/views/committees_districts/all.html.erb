@@ -2,8 +2,8 @@
 <table>
   <thead>
     <tr>
-      <th>Województwo</th>
       <th>Okręg</th>	
+      <th>Województwo</th>
       <th>Komitet</th>	
       <th>Liczba oddanych głosów</th>
       <th colspan="3"></th>
@@ -13,8 +13,8 @@
   <tbody>
     <% @committees_districts.each do |committees_district| %>
       <tr>
-	<td><%= committees_district.district.voivodship.name %></td>
 	<td><%= committees_district.district.name %></td>
+	<td><%= committees_district.district.voivodship.name %></td>
 	<td><%= committees_district.committee.name %></td>
         <td><%= committees_district.votes %></td>
    
@@ -23,7 +23,8 @@
     <% end %>
   </tbody>
 </table>
-<a href="#">Zestawienia wojewódzkie</a>
+<p><a href="votes_voivodships">Zestawienia wojewódzkie</a></p>
+<p><a href="/central">Menu - komisja centralna</a></p>
 <br>
 
 

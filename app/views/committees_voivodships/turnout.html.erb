@@ -1,0 +1,33 @@
+
+<h3>Frekwencja w województwie</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Województwo</th>
+      <th>Uprawnieni</th>
+      <th>Głosujący</th>	
+      <th>Frekwencja</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @voters.each do |voter| %>
+	
+      <tr>
+
+	<td><%= voter.voivodship.name %></td>
+	<td><%= voter.glosy %></td>
+	<td><%= voter.karty %></td>
+	<td><% @uprawnieni = voter.glosy %>
+       		<% @karty = voter.karty %>
+		<%= number_to_percentage(@karty.to_f / @uprawnieni.to_f*100) %>
+				</td>
+              </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<h5><a href="/central">Menu - komisja centralna</a></h5>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208133328) do
+ActiveRecord::Schema.define(version: 20150219160134) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -59,10 +59,12 @@ ActiveRecord::Schema.define(version: 20150208133328) do
     t.datetime "updated_at"
     t.integer  "district_id"
     t.integer  "committee_id"
+    t.integer  "voivodship_id"
   end
 
   add_index "committees_districts", ["committee_id"], name: "index_committees_districts_on_committee_id"
   add_index "committees_districts", ["district_id"], name: "index_committees_districts_on_district_id"
+  add_index "committees_districts", ["voivodship_id"], name: "index_committees_districts_on_voivodship_id"
 
   create_table "committees_voivodships", force: true do |t|
     t.integer  "number_of_votes"

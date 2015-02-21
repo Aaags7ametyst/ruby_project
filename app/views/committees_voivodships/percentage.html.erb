@@ -1,0 +1,32 @@
+
+<h3>Frekwencja w poszczególnych okręgach</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Okręg</th>
+      <th>Województwo</th>
+      <th>Uprawnieni</th>
+      <th>Głosujący</th>	
+      <th>Frekwencja</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+	<td><%= vote.name %></td>
+	<td><%= vote.voivodship.name %></td>
+        <td><% @uprawnieni = vote.eligible_voters %>
+		<%= @uprawnieni %></td>
+        <td><% @glosy = vote.vote_cards %>
+		<%= @glosy %></td>
+	<td><%= number_to_percentage(@glosy.to_f / @uprawnieni.to_f*100) %>
+				</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h5><a href="/central">Menu - komisja centralna</a></h5>

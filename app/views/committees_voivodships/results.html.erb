@@ -1,0 +1,35 @@
+
+<h3>Zbiorcze zestawienie wyników wyborów dla poszczególnych województw</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Województwo</th>
+      <th>Komitet</th>
+      <th>Liczba oddanych głosów</th>
+      <th>Ważne głosy</th>
+      <th>Procent wszystkich głosów</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+   
+     
+	      
+
+	<% @committees_voivodships.each do |committees_voivodship| %>
+<tr>
+	<td> <%= committees_voivodship.voivodship.name %></td>
+	<td> <%= committees_voivodship.committee.name %></td>
+	<td> <%= committees_voivodship.votes %></td>
+	<td> <%= committees_voivodship.karty %></td>
+	<td> <% @all = committees_voivodship.karty %>
+		<% @partia = committees_voivodship.votes %>
+		<%= number_to_percentage(@partia.to_f/@all.to_f*100) %></td>
+	
+<% end %>
+	
+</tr>
+
+  </tbody>
+</table>
+<h5><a href="/central">Menu - komisja centralna</a></h5>

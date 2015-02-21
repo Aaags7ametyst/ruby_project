@@ -1,13 +1,11 @@
 class CommitteesDistrictsController < ApplicationController
   before_action :set_committees_district, only: [:show, :edit, :update, :destroy]
-  #load_and_authorize_resource
+  load_and_authorize_resource
   # GET /committees_districts
   # GET /committees_districts.json
 
   def all
-    @committees_districts = CommitteesDistrict.all
-	#render 'index'
- 
+    @committees_districts = CommitteesDistrict.joins(:voivodship).all.order("voivodships.name")
   end
 
   def index

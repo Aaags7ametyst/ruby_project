@@ -34,11 +34,16 @@ Rails.application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  
+  get '/central', :controller => 'static', :action => 'central'
+  get '/role_district', :controller => 'static', :action => 'district'
+  get '/invalid', :controller => 'committees_voivodships', :action => 'invalid'
   get '/all_districts', :controller => 'committees_districts', :action => 'all'
   
   get '/votes_voivodships', :controller => 'committees_voivodships', :action => 'full'
-
+  get '/percentage_voivodships', :controller => 'committees_voivodships', :action => 'turnout'
+  get '/percentage_districts', :controller => 'committees_voivodships', :action => 'percentage'
+ 
+  get '/results', :controller => 'committees_voivodships', :action => 'results'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

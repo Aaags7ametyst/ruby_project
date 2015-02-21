@@ -1,9 +1,7 @@
 <h1>Dane dla okręgu <%= current_user.district.name %></h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
-      
       <th>Uprawnieni do głosowania</th>
       <th>Ilość głosów ważnych</th>
       <th>Głosy nieważne</th>
@@ -22,7 +20,6 @@
         <td><%= district.vote_cards %></td>
         <td><%= link_to 'Szczegóły', district %></td>
         <td><%= link_to 'Zaktualizuj', edit_district_path(district) %></td>
-      
       </tr>
     <% end %>
   </tbody>

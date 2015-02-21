@@ -10,9 +10,9 @@ class UserSessionsController < ApplicationController
 	#after_sign_in_path_for(User)
         #redirect_to root_path
          if current_user.role?("central")
-            redirect_to '/all_districts'
+            redirect_to '/central'
          else 
-            redirect_to '/districts'
+            redirect_to '/role_district'
          end
     else
       render :action => 'new'
