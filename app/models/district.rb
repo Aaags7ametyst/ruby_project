@@ -7,7 +7,7 @@ class District < ActiveRecord::Base
  if @current_user
  validate :sum_equals
  validate :sum_votes
- 
+
  def sum_equals
 	if self.invalid_votes != self.puste + self.wiele + self.inne
 		errors.add(:base, 'invalid sum of invalid votes')
