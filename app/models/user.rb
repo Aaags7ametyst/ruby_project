@@ -15,11 +15,11 @@ class User < ActiveRecord::Base
   def role?(base_role)
     ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
-#  validates :login, presence:  true
+  validates :login, presence:  true, format: {with:/\A[a-zA-Z0-9\.\-_]{5,30}\z/} 
  # validates :crypted_password, presence:  true
  # validates :email, presence: true
-  #validates :name, presence: true
-  #validates :surname, presence:  true
- # validates :role, presence:  true
+  validates :name, presence: true
+  validates :surname, presence:  true
+  validates :role, presence:  true
   
 end

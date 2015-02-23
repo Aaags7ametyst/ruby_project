@@ -5,7 +5,7 @@ class CommitteesDistrictsController < ApplicationController
   # GET /committees_districts.json
 
   def all
-    @committees_districts = CommitteesDistrict.joins(:voivodship).all.order("voivodships.name")
+    @committees_districts = CommitteesDistrict.joins(:voivodship).all.where("votes is not null").order("voivodships.name")
   end
 
   def index
