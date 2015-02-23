@@ -21,8 +21,17 @@
           		<li><%= link_to "Strona Główna", :root %></li>
 			<li><a href="/admin">Panel administratora</a></li>
 				<% if current_user %>
-     
+     			<li><% if current_user != nil %>
+			<% if current_user.role?("central") %>
+			<a href="/central">Menu - komisja centralna</a>
+			<% end %>
+			<% if current_user.role?("district") %>
+			<a href="/role_district">Menu - komisja okręgowa</a>
+			<% end %>
+			<% end %>
+			</li>
            		<li><%= link_to "Wyloguj", :logout %></li>
+			
   				<% else %>
        			<li><%= link_to "Zaloguj się", :login %></li>
   				
@@ -41,6 +50,8 @@
      
      
       <%= yield %>
+
+
     </div>
 <hr>
 <%= render :template => 'layouts/footer' %>

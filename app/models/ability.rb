@@ -16,6 +16,7 @@ class Ability
 #	can :manage, :all
  if user.role? :central
 	cannot :index, District
+	cannot :index, CommitteesDistrict
 	can :all, CommitteesDistrict
 	can :read, CommitteesVoivodship
 	can [:full, :results, :percentage, :turnout, :invalid], CommitteesVoivodship
